@@ -44,7 +44,9 @@ print_help()
 while True: ## REPL - Read Execute Program Loop
     cmd = input("Command: ").upper().strip()
     if cmd == "LIST":
-        print(read_phonelist(conn))
+        for n,p,a,i in read_phonelist(conn):
+            n = str(n); p = str(p); a = str(a); i = int(i); 
+            print(f"{i:2}: {n:10} {a:15} {p:15}")
     elif cmd == "ADD":
         name = input("  Name: ")
         phone = input("  Phone: ")
